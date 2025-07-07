@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MOVIE SEARCH</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="./assets/js/global.js" type="module"></script>
+  </head>
+  <body>
+    <header class="header on">
+      <div class="inner">
+        <h1 class="logo">
+          <a href="./index.html" class="logo__link"
+            ><img class="icon" src="./assets/images/logo-icon.svg" /><img class="text" src="./assets/images/logo.svg" alt="MOVIE SEARCH"
+          /></a>
+        </h1>
+        <div class="header-down">
+          <div class="main-search-box">
+            <label for="main-search-input" class="sr-only">영화 제목 검색</label>
+            <input id="main-search-input" type="text" class="input-text" placeholder="영화 제목을 입력하세요." />
+            <button type="reset" class="clear-circle-button --white"><span class="sr-only">검색어 삭제</span></button>
+            <button type="submit" class="search-button"><span class="sr-only">검색</span></button>
+          </div>
+          <div class="select-box-wrap">
+            <div class="select-box">
+              <button type="button" class="option-title">타입</button>
+              <div class="option-content">
+                <ul class="option-content-list">
+                  <li class="content-list-item"><button type="button">MOVIE</button></li>
+                  <li class="content-list-item"><button type="button">MOVIE</button></li>
+                  <li class="content-list-item"><button type="button">MOVIE</button></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="select-box">
+              <button type="button" class="option-title">연도</button>
+              <div class="option-content">
+                <ul class="option-content-list">
+                  <li class="content-list-item">
+                    <div class="search-year-box">
+                      <strong class="option-title">영화 연도</strong>
+                      <input type="number" id="year-input" class="input-number" placeholder="2025" min="1950" mix="2025" />
+                      <div class="button-box">
+                        <button type="reset" class="--border">초기화</button>
+                        <button type="submit" class="--bg">적용</button>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <button class="filter-btn"><span class="sr-only">필터선택</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section aria-labelledby="intro-heading" class="intro-section">
+        <h2 id="intro-heading" class="sr-only">홈페이지 인트로</h2>
+        <div class="intro__bg">
+          <div class="intro__box inner">
+            <span class="intro__sub-title">영어 제목으로 검색하면, 전세계의 명적들이 쏟아집니다!</span>
+            <p class="intro__title">지금, 어떤 영화를 찾고 있나요?</p>
+            <span class="intro__recommend">추천: Iron Man, Jurassic World, Parasite...</span>
+          </div>
+
+          <div class="intro-search inner">
+            <div class="main-search-box">
+              <label for="intro-search-input" class="sr-only">영화 제목 검색</label>
+              <input id="intro-search-input" type="text" class="input-text" placeholder="영화 제목을 입력하세요." />
+              <button type="reset" class="clear-circle-button --white"><span class="sr-only">검색어 삭제</span></button>
+              <button type="submit" class="search-button"><span class="sr-only">검색</span></button>
+            </div>
+            <div class="select-box-wrap">
+              <div class="select-box">
+                <button type="button" class="option-title">타입</button>
+                <div class="option-content">
+                  <ul class="option-content-list">
+                    <li class="content-list-item"><button type="button">MOVIE</button></li>
+                    <li class="content-list-item"><button type="button">MOVIE</button></li>
+                    <li class="content-list-item"><button type="button">MOVIE</button></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="select-box">
+                <button type="button" class="option-title">연도</button>
+                <div class="option-content">
+                  <ul class="option-content-list">
+                    <li class="content-list-item">
+                      <div class="search-year-box">
+                        <strong class="option-title">영화 연도</strong>
+                        <input type="number" id="year-input" class="input-number" placeholder="2025" min="1950" mix="2025" />
+                        <div class="button-box">
+                          <button type="reset" class="--border">초기화</button>
+                          <button type="submit" class="--bg">적용</button>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="inner">
+          <h3>input text</h3>
+          <div class="input-text-box">
+            <label for="search-input" class="sr-only">영화 제목 검색</label>
+            <input type="text" id="search-input" class="input-text" placeholder="영화 제목을 입력하세요" />
+            <button class="clear-circle-button"><span class="sr-only">검색어 삭제</span></button>
+          </div>
+          <button type="submit" class="search-button">검색</button>
+
+          <div class="main-search-box">
+            <label for="main-search-input" class="sr-only">영화 제목 검색</label>
+            <input id="main-search-input" type="text" class="input-text" placeholder="영화 제목을 입력하세요." />
+            <button type="reset" class="clear-circle-button --white"><span class="sr-only">검색어 삭제</span></button>
+            <button type="submit" class="search-button"><span class="sr-only">검색</span></button>
+          </div>
+
+          <hr class="hr" />
+
+          <h3>버튼</h3>
+
+          <div class="button-box">
+            <button type="reset" class="--border">초기화</button>
+            <button type="submit" class="--bg">적용</button>
+          </div>
+
+          <button class="filter-btn"><span class="sr-only">필터선택</span></button>
+
+          <hr class="hr" />
+
+          <h3>체크박스</h3>
+
+          <div class="checkbox-wrap">
+            <input type="checkbox" class="checkbox" id="type-movie" name="movie" value="movie" />
+            <label class="label" for="type-movie">MOVIE</label>
+          </div>
+
+          <hr class="hr" />
+
+          <h3>커스텀 셀렉트 박스</h3>
+          <div class="select-box">
+            <button type="button" class="option-title">타입</button>
+            <div class="option-content">
+              <ul class="option-content-list">
+                <li class="content-list-item"><button type="button">MOVIE</button></li>
+                <li class="content-list-item"><button type="button">MOVIE</button></li>
+                <li class="content-list-item"><button type="button">MOVIE</button></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="select-box">
+            <button type="button" class="option-title">연도</button>
+            <div class="option-content">
+              <ul class="option-content-list">
+                <li class="content-list-item">
+                  <div class="search-year-box">
+                    <strong class="option-title">영화 연도</strong>
+                    <input type="number" id="year-input" class="input-number" placeholder="2025" min="1950" mix="2025" />
+                    <div class="button-box">
+                      <button type="reset" class="--border">초기화</button>
+                      <button type="submit" class="--bg">적용</button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <hr class="hr" />
+          <h3>검색어 노출 배찌</h3>
+
+          <ul class="search__checked-list">
+            <li class="checked-list-item">
+              <button type="button" class="checked--button">MOVIE</button>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="movie-list-section inner">
+        <div class="main-title-box">
+          <h2 class="page-list-title"><strong>40</strong>영화가 검색되었습니다.</h2>
+          <a href="#none" class="link-text">더보기</a>
+        </div>
+        <ul class="movie-list">
+          <li class="movie-list__item">
+            <div class="movie-list__poster-box"></div>
+            <strong class="movie-list__title ellipsis">쥬라기 월드 타이틀</strong>
+            <div class="movie-list__info">
+              <span class="search-select-option">movie</span>
+              <span class="search-select-option">2025</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="">&copy; 2025 My Movie Search</p>
+    </footer>
+
+    <div class="loading">
+      <dotlottie-player
+        src="https://lottie.host/b469b423-d5fa-4b5a-9c2a-9add970a6fb5/Z48uXzhbV7.lottie"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 300px"
+        loop
+        autoplay
+      ></dotlottie-player>
+    </div>
+  </body>
+</html>

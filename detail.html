@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MOVIE SEARCH</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="./assets/js/global.js" type="module"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="inner">
+        <h1 class="logo">
+          <a href="./index.html" class="logo__link"
+            ><img class="icon" src="./assets/images/logo-icon.svg" /><img class="text" src="./assets/images/logo.svg" alt="MOVIE SEARCH"
+          /></a>
+        </h1>
+        <form id="search-form" class="search form">
+          <fieldset class="fieldset">
+            <div class="header-down">
+              <div class="main-search-box">
+                <label for="main-search-input" class="sr-only">영화 제목 검색</label>
+                <input id="main-search-input" type="text" class="input-text" placeholder="영화 제목을 입력하세요." />
+                <button type="reset" class="clear-circle-button --white"><span class="sr-only">검색어 삭제</span></button>
+                <button type="submit" class="search-button"><span class="sr-only">검색</span></button>
+              </div>
+              <div class="select-box-wrap">
+                <div class="select-box">
+                  <!-- <select class="option-title" id="type-input">
+                    <option>타입</option>
+                    <option>MOVIE</option>
+                    <option>SERIES</option>
+                    <option>EPOSIDE</option>
+                  </select> -->
+                  <button type="button" class="option-title" id="type-input">타입</button>
+                  <div class="option-content">
+                    <ul class="option-content-list">
+                      <li class="content-list-item"><button type="button" class="option" value="">전체</button></li>
+                      <li class="content-list-item"><button type="button" class="option" value="movie">MOVIE</button></li>
+                      <li class="content-list-item"><button type="button" class="option" value="series">SERIES</button></li>
+                      <li class="content-list-item"><button type="button" class="option" value="episode">EPOSIDE</button></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="select-box">
+                  <button type="button" class="option-title" id="year-input-text">연도</button>
+                  <div class="option-content">
+                    <ul class="option-content-list">
+                      <li class="content-list-item">
+                        <div class="search-year-box">
+                          <strong class="option-title">
+                            영화 연도
+                            <span class="info-text">
+                              1887 ~
+                              <span class="current-year"></span>
+                            </span>
+                          </strong>
+                          <input type="number" id="year-input" class="input-number" placeholder="2025" />
+
+                          <div class="button-box">
+                            <button type="button" class="--border --reset">초기화</button>
+                            <button type="button" class="--bg --apply">적용</button>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <button class="filter-btn"><span class="sr-only">필터선택</span></button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </header>
+
+    <main>
+      <section aria-labelledby="search-movie-detail" class="movie-list-section inner">
+        <h2 id="search-movie-detail" class="sr-only">영화 상세내용</h2>
+        <div class="test"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="">&copy; <span class="current-year"></span> My Movie Search</p>
+    </footer>
+
+    <div class="loading">
+      <dotlottie-player
+        src="https://lottie.host/b469b423-d5fa-4b5a-9c2a-9add970a6fb5/Z48uXzhbV7.lottie"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 300px"
+        loop
+        autoplay
+      ></dotlottie-player>
+    </div>
+  </body>
+</html>

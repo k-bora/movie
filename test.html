@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>영화 API 연습</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/js/global.js" type="module"></script>
+  </head>
+  <body>
+    <h1>영화 API 연습</h1>
+    <!-- http://www.omdbapi.com/?apikey=2ae8fbfa& -->
+
+    <form id="search" action="" class="search">
+      <fieldset>
+        <legend>제목</legend>
+        <input type="search" name="" id="" class="title" required />
+      </fieldset>
+      <fieldset>
+        <legend>연도 검색</legend>
+        <input type="number" name="" id="" min="1990" max="2025" class="year" />
+      </fieldset>
+      <fieldset>
+        <legend>타입</legend>
+        <select name="" id="" class="type-select">
+          <option value="">선택</option>
+          <option value="movie">movie</option>
+          <option value="series">series</option>
+          <option value="episode">episode</option>
+        </select>
+      </fieldset>
+      <button type="submit">검색</button>
+    </form>
+    <ul class="movie-list"></ul>
+  </body>
+</html>
