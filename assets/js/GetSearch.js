@@ -33,9 +33,11 @@ export const GetSearch = async (titleValue, typeValue, yearValue) => {
     const indexDataAll = [...indexMovieList1, ...indexMovieList2];
     // const searchDataAll = [...searchMovieList1, ...searchMovieList2];
 
+    // 현재창 /(슬래시) 이후에 값
+    const path = window.location.pathname;
+
     // index.html
-    // 현재창 /(슬래시) 이후에 index.html이 포함하는지 참/거짓 반환
-    if (window.location.pathname.includes("index.html")) {
+    if (path === "/movie/" || path === "/movie/index.html") {
       movieList.innerHTML = indexDataAll
         .map((item) => {
           return `
