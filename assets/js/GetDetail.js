@@ -11,7 +11,7 @@ export const GetDetail = async () => {
     loadingBox.classList.add("on");
   }
   try {
-    const Response = await fetch(`http://www.omdbapi.com/?apikey=2ae8fbfa&i=${keyword}`);
+    const Response = await fetch(`https://www.omdbapi.com/?apikey=2ae8fbfa&i=${keyword}`);
     const linkData = await Response.json();
 
     console.log(linkData); // 객체 (배엹X)

@@ -17,8 +17,8 @@ export const GetSearch = async (titleValue, typeValue, yearValue) => {
     const indexResponsePage1 = await fetch(`https://www.omdbapi.com/?apikey=2ae8fbfa&s=marvel&page=1`);
     const indexResponsePage2 = await fetch(`https://www.omdbapi.com/?apikey=2ae8fbfa&s=marvel&page=2`);
 
-    const SearchResponsePage1 = await fetch(`http://www.omdbapi.com/?apikey=2ae8fbfa&s=${titleValue}&type=${typeValue}&y=${yearValue}&page=1`);
-    // const SearchResponsePage2 = await fetch(`http://www.omdbapi.com/?apikey=2ae8fbfa&s=${titleValue}&type=${typeValue}&y=${yearValue}&page=2`);
+    const SearchResponsePage1 = await fetch(`https://www.omdbapi.com/?apikey=2ae8fbfa&s=${titleValue}&type=${typeValue}&y=${yearValue}&page=1`);
+    // const SearchResponsePage2 = await fetch(`https://www.omdbapi.com/?apikey=2ae8fbfa&s=${titleValue}&type=${typeValue}&y=${yearValue}&page=2`);
 
     const indexResltPage1 = await indexResponsePage1.json();
     const indexResltPage2 = await indexResponsePage2.json();
