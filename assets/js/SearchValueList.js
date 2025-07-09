@@ -84,13 +84,22 @@ export const valueListButtonClick = () => {
     const typeValue = typeInput.textContent;
     const yearValue = yearInput.value.trim();
 
-    // 값 비교해서 해당 항목 초기화
+    // 값 비교해서 초기화
     if (titleValue === value) {
       titleInput.value = "";
       const buttons = valueListForm.querySelectorAll(".value-button");
       buttons.forEach((button) => {
         button.remove();
       });
+
+      typeInput.textContent = "타입";
+      const moTypeSelect = document.querySelector("#alertfilter #type-input");
+      if (moTypeSelect) moTypeSelect.value = "";
+
+      yearInput.value = "";
+      yearText.textContent = "연도";
+      const moYearInput = document.querySelector("#alertfilter #year-input");
+      if (moYearInput) moYearInput.value = "";
     }
 
     if (typeValue === value) {
