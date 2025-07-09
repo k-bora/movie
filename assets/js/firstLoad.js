@@ -1,6 +1,4 @@
-// import { GetSearch } from "./GetSearch.js";
 import { valueGet } from "./SearchSave.js";
-// import { SearchValueList, valueListButtonClick } from "./SearchValueList.js";
 
 export const firstLoad = async () => {
   // 가장 먼저 이전에 있던 검색 값들을 가져와서 실행!

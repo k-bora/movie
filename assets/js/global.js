@@ -10,7 +10,6 @@ import { Dialog } from "./Dialog.js";
 // import { GetSearch } from "./GetSearch.js"; // 저장된 값을 이용해 노출
 // import { SearchValueList } from "./SearchValueList.js"; // 저장된 값을 이용해 노출
 import { GetDetail } from "./GetDetail.js";
-// import { Dialog } from "./Dialog.js";
 
 // header와 footer 가져오기
 IncludeHTML().then(() => {
