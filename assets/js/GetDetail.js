@@ -14,7 +14,7 @@ export const GetDetail = async () => {
     const Response = await fetch(`https://www.omdbapi.com/?apikey=2ae8fbfa&i=${keyword}`);
     const linkData = await Response.json();
 
-    console.log(linkData); // 객체 (배엹X)
+    // console.log(linkData); // 객체 (배열X)
 
     const test = document.querySelector(".test");
     if (!test) return;

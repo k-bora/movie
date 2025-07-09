@@ -1,40 +1,46 @@
 import { GetSearch } from "./GetSearch.js";
 import { SearchValueList } from "./SearchValueList.js";
 
+export const locationSearch = () => {
+  const mainIndex = document.querySelector("main.index");
+  const mainDetail = document.querySelector("main.detail");
+
+  // const titleData = localStorage.getItem("title");
+  // const typeData = localStorage.getItem("type");
+  // const yearData = localStorage.getItem("year");
+
+  if (mainIndex || mainDetail) {
+    location.href = `./search.html`;
+    // location.href = `search.html?title=${titleData}&type=${typeData}&year=${yearData}`;
+  }
+};
+
+// 검색값을 localStorage 저장, 검색값으로 실행해야되는 함수들 실행, location 실행
+export const valueGet = (titleValue, typeValue, yearValue) => {
+  if (!titleValue) {
+    const alertDialog = document.querySelector("#alertDialog");
+    const alertText = alertDialog.querySelector("p");
+    alertText.textContent = "영화제목을 입력해주세요.";
+    alertDialog.showModal();
+    return;
+  } else {
+    localStorage.setItem("title", titleValue);
+    localStorage.setItem("year", yearValue);
+    if (typeValue === "타입" || "") {
+      typeValue = "";
+      localStorage.setItem("type", typeValue.toLowerCase());
+    } else {
+      localStorage.setItem("type", typeValue.toLowerCase());
+    }
+
+    GetSearch(titleValue, typeValue, yearValue);
+    SearchValueList(titleValue, typeValue, yearValue);
+  }
+};
+
 export const SearchSave = () => {
   const headerSearchForm = document.querySelector("#search-form");
   const indexSearchForm = document.querySelector("#intro-form");
-
-  // 검색값을 localStorage 저장, 검색값으로 실행해야되는 함수들 실행, location 실행
-  const valueGet = (titleValue, typeValue, yearValue) => {
-    if (!titleValue) {
-      alert("영화제목을 입력해주세요");
-    } else {
-      localStorage.setItem("title", titleValue);
-      localStorage.setItem("year", yearValue);
-      if (typeValue === "타입") {
-        typeValue = "";
-        localStorage.setItem("type", typeValue);
-      } else {
-        localStorage.setItem("type", typeValue);
-      }
-
-      GetSearch(titleValue, typeValue, yearValue);
-      SearchValueList(titleValue, typeValue, yearValue);
-
-      // const titleData = localStorage.getItem("title");
-      // const typeData = localStorage.getItem("type");
-      // const yearData = localStorage.getItem("year");
-
-      if (window.location.pathname.includes("index.html")) {
-        location.href = `search.html`;
-        // location.href = `search.html?title=${titleData}&type=${typeData}&year=${yearData}`;
-      }
-      if (window.location.pathname.includes("detail.html")) {
-        location.href = `search.html`;
-      }
-    }
-  };
 
   // header 검색값 가져오기
   if (headerSearchForm) {
@@ -51,6 +57,10 @@ export const SearchSave = () => {
       // console.log(yearValue);
 
       valueGet(titleValue, typeValue, yearValue);
+
+      if (titleValue) {
+        locationSearch();
+      }
     });
   }
 
@@ -64,6 +74,9 @@ export const SearchSave = () => {
       const indexYearValue = indexSearchForm.querySelector("#intro-year-input").value.trim();
 
       valueGet(indexTitleValue, indexTypeValue, indexYearValue);
+      if (indexTitleValue) {
+        locationSearch();
+      }
     });
   }
 };

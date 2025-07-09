@@ -6,7 +6,7 @@ export const SearchValueList = (titleValue, typeValue, yearValue) => {
 
   if (!searchValueBox) return;
 
-  // 전체 값을 배열로 모음
+  // 전제 값을 배열로 모음
   const resultValues = [];
 
   // 값이 있는 것만 배열에 넣기
@@ -14,7 +14,7 @@ export const SearchValueList = (titleValue, typeValue, yearValue) => {
     resultValues.push(titleValue);
   }
   if (typeValue) {
-    resultValues.push(typeValue);
+    resultValues.push(typeValue.toUpperCase());
   }
   if (yearValue) {
     resultValues.push(yearValue);
@@ -30,7 +30,7 @@ export const SearchValueList = (titleValue, typeValue, yearValue) => {
     })
     .join("");
 
-  // 기존 값 유지 + 뒤에 추가
+  // 기존 값 유지 + 뒤에 추가 ... 포기
   // resultValues.forEach((value) => {
   //   const li = document.createElement("li");
   //   li.className = "value-list-item";
@@ -75,30 +75,30 @@ export const valueListButtonClick = () => {
     const value = clickedButton.textContent.trim();
 
     const titleInput = headerSearchForm.querySelector("#main-search-input");
-    const typeInput = headerSearchForm.querySelector("#type-input");
+    const typeInput = headerSearchForm.querySelector("#type-input"); // 버튼태그 textContent
     const yearInput = headerSearchForm.querySelector("#year-input");
-    const yearText = headerSearchForm.querySelector("#year-input-text");
+    const yearText = headerSearchForm.querySelector("#year-input-text"); // 버튼태그 textContent
 
-    let titleValue = titleInput.value.trim();
-    let typeValue = typeInput.value;
-    let yearValue = yearInput.value.trim();
+    const titleValue = titleInput.value.trim();
+    const typeValue = typeInput.textContent.toLowerCase();
+    const yearValue = yearInput.value.trim();
 
     // 값 비교해서 해당 항목 초기화
     if (titleValue === value) {
       titleInput.value = "";
-      titleValue = "";
     }
 
     if (typeValue === value) {
-      typeInput.value = "";
       typeInput.textContent = "타입";
-      typeValue = "";
+      const moTypeSelect = document.querySelector("#alertfilter #type-input");
+      if (moTypeSelect) moTypeSelect.value = "";
     }
 
     if (yearValue === value) {
       yearInput.value = "";
-      if (yearText) yearText.textContent = "연도";
-      yearValue = "";
+      yearText.textContent = "연도";
+      const moYearInput = document.querySelector("#alertfilter #year-input");
+      if (moYearInput) moYearInput.value = "";
     }
 
     // 버튼 제거

@@ -2,26 +2,28 @@ export const HeaderEvent = () => {
   const header = document.querySelector(".header");
   const headerHeight = document.querySelector(".header").offsetHeight;
 
-  // search.html 에서는
-  if (window.location.pathname.includes("search.html")) {
+  const mainIndex = document.querySelector("main.index");
+  const mainSearch = document.querySelector("main.search");
+  const mainDitail = document.querySelector("main.detail");
+
+  // search.html, dertail.html
+  if (mainSearch || mainDitail) {
     header.classList.add("on");
-    return;
-  }
-  if (window.location.pathname.includes("detail.html")) {
-    header.classList.add("on");
-    return;
   }
 
-  window.addEventListener("scroll", () => {
-    // console.log("헤더높이값:" + headerHeight);
+  // index.html
+  if (mainIndex) {
+    window.addEventListener("scroll", () => {
+      // console.log("헤더높이값:" + headerHeight);
 
-    let scrollYvalue = window.scrollY;
-    // console.log(scrollYvalue);
+      let scrollYvalue = window.scrollY;
+      // console.log(scrollYvalue);
 
-    if (scrollYvalue > headerHeight) {
-      header.classList.add("on");
-    } else {
-      header.classList.remove("on");
-    }
-  });
+      if (scrollYvalue > headerHeight) {
+        header.classList.add("on");
+      } else {
+        header.classList.remove("on");
+      }
+    });
+  }
 };

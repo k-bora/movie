@@ -69,7 +69,7 @@ export const SelectDropdown = () => {
           e.preventDefault();
           // console.log(selectValue);
 
-          if (selectText === "전체") {
+          if (selectText === "전제") {
             selectBtn.textContent = "타입";
             selectBtn.value = selectValue;
           } else {

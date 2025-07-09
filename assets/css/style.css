@@ -63,7 +63,7 @@ body {
   text-align: center;
 }
 
-main {
+.main {
   min-height: 100vh;
   margin-top: var(--headerHeight);
 }
@@ -214,6 +214,7 @@ button {
   column-gap: 0.3125rem;
   border-radius: 0.625rem;
   cursor: pointer;
+  color: inherit;
 }
 
 button.--bg {
@@ -446,6 +447,24 @@ select.option-title.on {
 .intro-search .input-text {
   color: var(--white);
 }
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  max-width: 300px;
+  width: 80%;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid var(--borderColorD5D);
+  background: var(--white);
+}
+.popup::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
 /* ---------------------------- search-section 끝 ---------------------------- */
 
 /* ----------------------------- movie-list-section 시작 ---------------------------- */
@@ -515,6 +534,16 @@ select.option-title.on {
   font-size: 0.875rem;
 }
 
+.select-box-wrap-mo .select-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+.select-box-wrap-mo .select-box + .select-box {
+  margin-top: 20px;
+}
+
 @media (max-width: 800px) {
   .header .inner {
     padding: 0 1.25rem;
@@ -533,7 +562,7 @@ select.option-title.on {
     display: block;
     min-width: 34px;
   }
-  .header .select-box-wrap {
+  .select-box-wrap {
     display: none;
   }
   .main-search-box {
@@ -541,7 +570,8 @@ select.option-title.on {
     min-height: 45px;
   }
   .main-search-box .input-text {
-    padding: 10px 20px;
+    padding-right: 40px;
+    padding-left: 0;
     border: 0;
   }
 
@@ -555,13 +585,19 @@ select.option-title.on {
     height: 35px;
   }
   .intro__bg {
-    height: calc(60vh - var(--headerHeight));
-    min-height: 450px;
+    min-height: 400px;
   }
   .intro-search {
-    padding-top: 80px;
+    padding-top: 130px;
   }
   .intro__title {
     font-size: 1.875rem;
+  }
+
+  .movie-list-section {
+    padding-top: 0;
+  }
+  .movie-list {
+    gap: 20px;
   }
 }
