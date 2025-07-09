@@ -58,6 +58,7 @@ export const SearchValueList = (titleValue, typeValue, yearValue) => {
   //     if (li) li.remove();
   //   }
   // });
+  valueListButtonClick();
 };
 
 /* --------------------- 검색된 값 버튼 클릭시 삭제(클릭된 버튼 + 검색값) -------------------- */
@@ -80,12 +81,16 @@ export const valueListButtonClick = () => {
     const yearText = headerSearchForm.querySelector("#year-input-text"); // 버튼태그 textContent
 
     const titleValue = titleInput.value.trim();
-    const typeValue = typeInput.textContent.toLowerCase();
+    const typeValue = typeInput.textContent;
     const yearValue = yearInput.value.trim();
 
     // 값 비교해서 해당 항목 초기화
     if (titleValue === value) {
       titleInput.value = "";
+      const buttons = valueListForm.querySelectorAll(".value-button");
+      buttons.forEach((button) => {
+        button.remove();
+      });
     }
 
     if (typeValue === value) {
@@ -104,7 +109,12 @@ export const valueListButtonClick = () => {
     // 버튼 제거
     clickedButton.remove();
 
+    // 바뀐 값을 새로 가져오기!
+    const updatedTitle = titleInput.value.trim();
+    const updatedType = typeInput.textContent === "타입" ? "" : typeInput.textContent;
+    const updatedYear = yearInput.value.trim();
+
     // 검색 재실행
-    GetSearch(titleValue, typeValue, yearValue);
+    GetSearch(updatedTitle, updatedType, updatedYear);
   });
 };
