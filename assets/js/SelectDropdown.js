@@ -9,10 +9,9 @@ export const SelectDropdown = () => {
   }
 
   // .on 제거 함수
-  const classRemove = (selectors) => {
-    selectors.forEach((selector) => {
-      selector.classList.remove("on");
-    });
+  const classRemove = () => {
+    const allBtns = document.querySelectorAll("button.option-title.on");
+    allBtns.forEach((btn) => btn.classList.remove("on"));
   };
 
   const dimRemove = () => {
@@ -38,7 +37,7 @@ export const SelectDropdown = () => {
         const btnCheck = selectBtn.classList.contains("on");
 
         // 모든 버튼의 .on 제거 (모든 버튼 닫기)
-        classRemove(selectBtns);
+        classRemove();
         dimRemove();
 
         // 클릭한 셀렉트 버튼에 .on 없으면
@@ -55,7 +54,7 @@ export const SelectDropdown = () => {
 
           // dim 클릭시
           dim.addEventListener("click", () => {
-            classRemove(selectBtns);
+            classRemove();
             dimRemove();
           });
         }
@@ -78,7 +77,7 @@ export const SelectDropdown = () => {
             selectBtn.value = selectValue;
           }
 
-          classRemove(selectBtns);
+          classRemove();
           dimRemove();
         });
       });
@@ -98,7 +97,7 @@ export const SelectDropdown = () => {
             selectBtn.textContent = selectValue;
           }
 
-          classRemove(selectBtns);
+          classRemove();
           dimRemove();
         });
       });
@@ -111,7 +110,7 @@ export const SelectDropdown = () => {
           selectBtn.textContent = "연도";
           yearInput.value = "";
 
-          classRemove(selectBtns);
+          classRemove();
           dimRemove();
         });
       });
