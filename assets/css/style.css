@@ -238,6 +238,10 @@ button.--border {
   color: var(--white);
 } */
 
+select {
+  color: inherit;
+}
+
 .filter-btn {
   width: 34px;
   height: 34px;

@@ -29,7 +29,10 @@ export const firstLoad = async () => {
     yearInputText.textContent = year;
   }
 
-  valueGet(title, type, year);
+  // 타이틀이 있을때만
+  if (title && title.trim() !== "") {
+    valueGet(title, type, year);
+  }
 
   // 위에 if 문과 동일
   // if (titleInput) titleInput.value = title || "";
