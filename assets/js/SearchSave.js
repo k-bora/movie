@@ -15,7 +15,7 @@ export const locationSearch = () => {
   }
 };
 
-// 검색값을 localStorage 저장, 검색값으로 실행해야되는 함수들 실행, location 실행
+// 검색값을 localStorage 저장, 검색값으로 실행해야되는 함수들 실행
 export const valueGet = (titleValue, typeValue, yearValue) => {
   if (!titleValue) {
     const alertDialog = document.querySelector("#alertDialog");
@@ -74,6 +74,7 @@ export const SearchSave = () => {
       const indexYearValue = indexSearchForm.querySelector("#intro-year-input").value.trim();
 
       valueGet(indexTitleValue, indexTypeValue, indexYearValue);
+
       if (indexTitleValue) {
         locationSearch();
       }

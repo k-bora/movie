@@ -84,7 +84,7 @@ export const valueListButtonClick = () => {
     const typeValue = typeInput.textContent;
     const yearValue = yearInput.value.trim();
 
-    // 값 비교해서 초기화
+    // 값 비교해서 초기화 !!!문제점!!! : 영화제목검색어가 타입이나 연도랑 동일하면 한번에 삭제됨...
     if (titleValue === value) {
       titleInput.value = "";
       const buttons = valueListForm.querySelectorAll(".value-button");

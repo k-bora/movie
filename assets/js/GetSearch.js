@@ -30,6 +30,7 @@ export const GetSearch = async (titleValue, typeValue, yearValue) => {
       // console.log(searchResultPage1);
 
       if (searchMovieList1) {
+        movieList.classList.remove("none");
         movieList.innerHTML = searchMovieList1
           .map((item) => {
             return `
@@ -47,7 +48,15 @@ export const GetSearch = async (titleValue, typeValue, yearValue) => {
           })
           .join("");
       } else {
-        movieList.innerHTML = "검색결과가 없습니다.";
+        movieList.classList.add("none");
+        movieList.innerHTML = `
+        <li>
+          <img src="./assets/images/warning-icon.svg">
+          <strong>죄송합니다. 일치하는 항목을 찾을 수 없습니다.</strong>
+          <span>검색어 철자를 확인하세요.</span>
+          <span>영어로 검색해주세요.</span>
+        </li>
+        `;
       }
     }
   } catch (error) {

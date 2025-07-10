@@ -23,6 +23,17 @@ export const MobileFilter = () => {
     const moTypeValue = document.querySelector("#alertfilter #type-input").value.trim();
     const moYearValue = document.querySelector("#alertfilter #year-input").value.trim();
 
+    // 값이 "" 아닐때
+    if (moYearValue !== "") {
+      if (moYearValue < 1887 || moYearValue > new Date().getFullYear()) {
+        const alertDialog = document.querySelector("#alertDialog");
+        const alertDialogText = alertDialog.querySelector("p");
+        alertDialogText.textContent = `연도는 1887 ~ ${new Date().getFullYear()} 까지 검색이 가능합니다.`;
+        alertDialog.showModal();
+        return;
+      }
+    }
+
     // 저장
     localStorage.setItem("type", moTypeValue.toLowerCase()); // 저장할때는 소문자, 노출할때는 대문자
     localStorage.setItem("year", moYearValue);

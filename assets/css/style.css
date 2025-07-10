@@ -64,7 +64,7 @@ body {
 }
 
 .main {
-  min-height: 100vh;
+  min-height: calc(100vh - var(--headerHeight));
   margin-top: var(--headerHeight);
 }
 
@@ -465,6 +465,11 @@ select.option-title.on {
 .popup::backdrop {
   background: rgba(0, 0, 0, 0.5);
 }
+
+/* dialog#alertDialog {
+  z-index: 9999;
+} */
+
 /* ---------------------------- search-section 끝 ---------------------------- */
 
 /* ----------------------------- movie-list-section 시작 ---------------------------- */
@@ -494,6 +499,31 @@ select.option-title.on {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.875rem;
+}
+
+.movie-list.none {
+  display: block;
+}
+
+.movie-list.none li {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.movie-list.none strong {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.movie-list.none span {
+  font-size: 16px;
+  color: var(--textColor434);
+}
+
+.movie-list.none img {
+  width: 80px;
+  margin: 0 auto;
 }
 
 .movie-link {
@@ -544,6 +574,35 @@ select.option-title.on {
   margin-top: 20px;
 }
 
+.detaile-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.poster-box-wrap {
+  padding-bottom: 20px;
+  border-bottom: solid 1px var(--borderColorE5E);
+}
+
+.poster-box {
+  width: 100%;
+  min-width: 300px;
+  max-width: 600px;
+  min-height: 300px;
+  aspect-ratio: 5 / 6;
+  background: no-repeat var(--bg) center / cover, var(--bgColorF5F) no-repeat url(../images/no-image.svg) center;
+  border: solid 1px var(--borderColorE5E);
+  border-radius: 0.625rem;
+  margin: 0 auto;
+}
+.plot {
+  padding: 20px 0;
+  border-top: solid 1px var(--borderColorE5E);
+  border-bottom: solid 1px var(--borderColorE5E);
+}
+
 @media (max-width: 800px) {
   .header .inner {
     padding: 0 1.25rem;
@@ -589,15 +648,26 @@ select.option-title.on {
   }
   .intro-search {
     padding-top: 130px;
+    padding-bottom: 30px;
   }
   .intro__title {
     font-size: 1.875rem;
   }
 
   .movie-list-section {
+    padding-top: 20px;
+  }
+
+  main.search .movie-list-section {
     padding-top: 0;
   }
   .movie-list {
     gap: 20px;
+  }
+  .detaile-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
   }
 }

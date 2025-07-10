@@ -60,7 +60,7 @@ export const SelectDropdown = () => {
         }
       });
 
-      // 옵션 버튼을 클릭하면
+      // 타입 옵션 버튼을 클릭하면
       optionBtns.forEach((optionBtn) => {
         optionBtn.addEventListener("click", (e) => {
           const selectText = optionBtn.textContent;
@@ -82,7 +82,7 @@ export const SelectDropdown = () => {
         });
       });
 
-      // 적용 버튼을 클릭하면
+      // 연도 적용 버튼을 클릭하면
       applyBtns.forEach((applyBtn) => {
         applyBtn.addEventListener("click", (e) => {
           e.preventDefault();
@@ -90,7 +90,9 @@ export const SelectDropdown = () => {
           // console.log(selectValue);
 
           if (1887 > selectValue || selectValue > new Date().getFullYear()) {
-            alert(`1887 ~ ${new Date().getFullYear()} 까지 검색이 가능합니다.`);
+            const alertDialogText = document.querySelector("#alertDialog p");
+            alertDialogText.textContent = `연도는 1887 ~ ${new Date().getFullYear()} 까지 검색이 가능합니다.`;
+
             selectBtn.textContent = "연도";
             yearInput.value = "";
           } else {
@@ -102,7 +104,7 @@ export const SelectDropdown = () => {
         });
       });
 
-      // 리셋 버튼을 클릭하면
+      // 연도 리셋 버튼을 클릭하면
       resetBtns.forEach((resetBtn) => {
         resetBtn.addEventListener("click", (e) => {
           e.preventDefault();
