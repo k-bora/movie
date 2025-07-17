@@ -381,7 +381,7 @@ select.option-title.on {
 }
 
 .value-list-item {
-  padding-bottom: 1.25rem;
+  /* padding-bottom: 1.25rem; */
 }
 
 .value-button {
@@ -605,6 +605,58 @@ select.option-title.on {
   padding: 20px 0;
   border-top: solid 1px var(--borderColorE5E);
   border-bottom: solid 1px var(--borderColorE5E);
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  gap: 8px;
+  margin: 40px auto 60px;
+}
+
+.page-btn {
+  padding: 6px 14px;
+  min-width: 40px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.page-btn:hover {
+  background-color: #f0f0f0;
+  border-color: #888;
+}
+
+.page-btn.active {
+  background-color: #111;
+  color: #fff;
+  font-weight: bold;
+  border-color: #111;
+}
+
+.search-result-count {
+  /* text-align: center; */
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 20px;
+  color: var(--bgColor222);
+}
+
+.search-result-count span {
+  font-weight: 600;
+  color: var(--black);
+}
+
+#load-more {
+  width: 100%;
+  border: 1px solid var(--borderColorD5D);
+  height: 40px;
+  background-color: transparent;
+  color: var(--black);
 }
 
 @media (max-width: 800px) {

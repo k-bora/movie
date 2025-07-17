@@ -6,7 +6,10 @@
     <title>MOVIE SEARCH</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-    <script src="./assets/js/global.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="./assets/new-js/global.js" type="module"></script>
+    <!-- <script src="./assets/js/global.js" type="module"></script> -->
   </head>
   <body>
     <header class="header">
@@ -57,7 +60,7 @@
                                 <span class="current-year"></span>
                               </span>
                             </strong>
-                            <input type="number" id="intro-year-input" class="input-number" placeholder="2025" />
+                            <input type="number" id="intro-year-input" class="input-number" placeholder="2025" min="1887" max="2025" />
                             <div class="button-box">
                               <button type="button" class="--border --reset">초기화</button>
                               <button type="button" class="--bg --apply">적용</button>

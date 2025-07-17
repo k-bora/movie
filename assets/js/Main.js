@@ -1,3 +1,6 @@
+import { createMovieListItem } from "./createMovieListItem.js";
+import { Animation } from "./Animation.js";
+
 export const Main = async () => {
   const loadingBox = document.querySelector(".loading");
   const movieList = document.querySelector(".movie-list");
@@ -22,22 +25,8 @@ export const Main = async () => {
 
     // index.html
     if (indexPage) {
-      movieList.innerHTML = indexDataAll
-        .map((item) => {
-          return `
-        <li class="movie-list__item">
-          <a class="movie-link" href="./detail.html?id=${item.imdbID}">
-            <div class="movie-list__poster-box" style="--bg:url(${item.Poster})" ></div>
-            <strong class="movie-list__title ellipsis">${item.Title}</strong>
-            <div class="movie-list__info">
-              <span class="search-select-option">${item.Type}</span>
-              <span class="search-select-option">${item.Year}</span>
-            </div>
-          </a>
-        </li>
-      `;
-        })
-        .join("");
+      movieList.innerHTML = indexDataAll.map(createMovieListItem).join("");
+      Animation();
     }
   } catch (error) {
     console.log(error);
