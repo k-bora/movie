@@ -1,5 +1,4 @@
 import { GetSearch } from "./GetSearch.js";
-import { Animation } from "../effects/Animation.js";
 
 /* ---------------------------- 검색된 값 버튼으로 노출하기 --------------------------- */
 export const SearchValueList = (titleValue, typeValue, yearValue) => {
@@ -14,16 +13,15 @@ export const SearchValueList = (titleValue, typeValue, yearValue) => {
   if (yearValue) resultValues.push(yearValue);
 
   searchValueBox.innerHTML = resultValues
-    .map(
-      (values) => `
-        <li class="value-list-item">
-          <button type="submit" class="value-button">${values}</button>
-        </li>
-      `
-    )
+    .map((values) => {
+      return `
+            <li class="value-list-item">
+              <button type="button" class="value-button">${values}</button>
+            </li>
+          `;
+    })
     .join("");
 
-  Animation();
   valueListButtonClick();
 };
 
