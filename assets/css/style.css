@@ -532,9 +532,11 @@ select.option-title.on {
 
 .movie-link {
   display: block;
+  cursor: pointer;
 }
 
 .movie-list__poster-box {
+  position: relative;
   width: 100%;
   min-height: 300px;
   aspect-ratio: 5 / 6;
@@ -591,6 +593,7 @@ select.option-title.on {
 }
 
 .poster-box {
+  position: relative;
   width: 100%;
   min-width: 300px;
   max-width: 600px;
@@ -657,6 +660,59 @@ select.option-title.on {
   height: 40px;
   background-color: transparent;
   color: var(--black);
+}
+
+.movie-list__poster-box .tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--white);
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.movie-list__poster-box:hover .tooltip {
+  display: block;
+  opacity: 1;
+  transition: all 1s;
+}
+
+.movie-list__item {
+  position: relative;
+}
+
+.good-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  background: url(../images/heart-btn-off.svg) no-repeat center;
+}
+
+.good-btn.on {
+  background: url(../images/heart-btn-on.svg) no-repeat center;
+}
+
+.poster-box .good-btn {
+  top: 20px;
+  right: 20px;
+  width: 46px;
+  height: 46px;
+  background: url(../images/heart-btn-off.svg) no-repeat center / 46px;
+}
+
+.poster-box .good-btn.on {
+  background: url(../images/heart-btn-on.svg) no-repeat center / 46px;
 }
 
 @media (max-width: 800px) {
