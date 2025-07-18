@@ -1,5 +1,6 @@
 import { OMDB_API_BASE } from "../utils/constants.js";
 import { showLoading, hideLoading } from "../utils/loading.js";
+import { goodButton } from "../utils/goodButton.js";
 
 export const GetDetail = async () => {
   const params = new URLSearchParams(window.location.search);
@@ -52,7 +53,9 @@ export const GetDetail = async () => {
 
     const detailHTML = `
       <div class="poster-box-wrap">
-        <div class="poster-box" style="--bg:url(${bestPoster})"></div>
+        <div class="poster-box" style="--bg:url(${bestPoster})">
+          <button type="button" class="good-btn" data-id="${data.imdbID}"></button>
+        </div>
       </div>
       <ul class="detaile-list">
         <li><strong>제목</strong> ${safeText(data.Title)}</li>
@@ -73,8 +76,8 @@ export const GetDetail = async () => {
       </ul>
       <p class="plot"><strong>줄거리</strong> ${safeText(data.Plot)}</p>
   `;
-
     container.innerHTML = detailHTML;
+    goodButton();
   } catch (err) {
     console.error(err);
   } finally {

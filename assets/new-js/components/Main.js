@@ -2,6 +2,7 @@ import { OMDB_API_BASE } from "../utils/constants.js";
 import { createMovieListItem } from "../handlers/createMovieListItem.js";
 import { showLoading, hideLoading } from "../utils/loading.js";
 import { restoreSearchInputs } from "../utils/restoreSearchInputs.js";
+import { goodButton } from "../utils/goodButton.js";
 
 export const Main = async () => {
   const mainPage = document.querySelector(".main.index");
@@ -40,6 +41,7 @@ export const Main = async () => {
       // movieList에 출력
       if (movieList) {
         movieList.innerHTML = movies.map(createMovieListItem).join("");
+        goodButton();
       }
     } catch (err) {
       console.error(err);

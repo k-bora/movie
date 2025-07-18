@@ -1,6 +1,7 @@
 import { IncludeHTML } from "./layout/IncludeHTML.js";
 import { Main } from "./components/Main.js";
 import { GetDetail } from "./components/GetDetail.js";
+import { Favorites } from "./components/Favorites.js";
 import { HeaderEvent } from "./layout/HeaderEvent.js";
 import { firstSearchLoad } from "./scripts/search.js";
 import { SearchSave } from "./handlers/SearchSave.js";
@@ -26,4 +27,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   MobileFilter();
   GetDetail();
   Animation();
+  Favorites();
 });

@@ -8,5 +8,6 @@ export const createMovieListItem = (item) => `
         <span class="search-select-option">${item.Year}</span>
       </div>
     </a>
+    <button type="button" class="good-btn" data-id="${item.imdbID}"></button>
   </li>
 `;

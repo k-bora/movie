@@ -6,6 +6,7 @@ let currentYear = "";
 import { OMDB_API_BASE } from "../utils/constants.js";
 import { createMovieListItem } from "./createMovieListItem.js";
 import { showLoading, hideLoading } from "../utils/loading.js";
+import { goodButton } from "../utils/goodButton.js";
 
 export const GetSearch = async (titleValue, typeValue, yearValue, page = 1, append = false) => {
   const movieList = document.querySelector(".movie-list");
@@ -28,8 +29,11 @@ export const GetSearch = async (titleValue, typeValue, yearValue, page = 1, appe
 
       if (append) {
         movieList.innerHTML += data.Search.map(createMovieListItem).join("");
+        goodButton();
       } else {
         movieList.innerHTML = data.Search.map(createMovieListItem).join("");
+        goodButton();
+
         // data.totalResults 전체 검색수 ,타입 문자
         resultCountEl.textContent = Number(data.totalResults).toLocaleString();
 
