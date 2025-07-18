@@ -26,7 +26,7 @@ export const Favorites = async () => {
         movieList.classList.add("none");
         movieList.innerHTML = `
         <li style="padding-top: 100px">
-          <img src="../assets/images/heart-btn-on.svg" alt="좋아요 아이콘">
+          <img src="./assets/images/heart-btn-on.svg" alt="좋아요 아이콘">
           <strong>좋아요를 눌러보세요!</strong>
         </li>
       `;
