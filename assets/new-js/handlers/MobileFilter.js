@@ -21,7 +21,6 @@ export const MobileFilter = () => {
   // 적용버튼 클릭시 값 저장 + PC필터 동기화
   filterPopupClose.addEventListener("click", () => {
     const moTypeValue = document.querySelector("#alertfilter #type-input").value.trim();
-    const moYearValue = document.querySelector("#alertfilter #year-input").value.trim();
 
     // 값이 "" 아닐때
     if (moYearValue !== "") {
