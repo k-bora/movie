@@ -6,6 +6,7 @@ export const GetDetail = async () => {
   const params = new URLSearchParams(window.location.search);
   const keyword = params.get("id");
   const container = document.querySelector(".detaile-list-box");
+  const title = document.querySelector("#search-movie-detail");
 
   if (!keyword || !container) return;
   showLoading();
@@ -50,6 +51,11 @@ export const GetDetail = async () => {
     const safeText = (value) => {
       return value && value !== "N/A" ? value : "-";
     };
+
+    const datailTitle = `
+     ${safeText(data.Title)} 상세내용
+    `;
+    title.textContent = datailTitle;
 
     const detailHTML = `
       <div class="poster-box-wrap">
