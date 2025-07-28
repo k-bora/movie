@@ -127,7 +127,7 @@ body {
 .intro__bg {
   position: relative;
   min-height: 500px;
-  background: no-repeat url(../images/intro-bg.png) center 80% / cover;
+  background: no-repeat url(../images/intro-bg.jpg) center 55% / cover;
 }
 
 .intro__bg::before {
@@ -230,14 +230,6 @@ button.--border {
   font-weight: 700;
 }
 
-/* .search-button {
-  min-width: 4.375rem;
-  min-height: 3.125rem;
-  padding: 0.625rem;
-  background-color: var(--bgColor222);
-  color: var(--white);
-} */
-
 select {
   color: inherit;
 }
@@ -314,7 +306,7 @@ select.option-title.on {
 .dimmed-layer {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0); /* 투명하게 처리 */
+  background: rgba(0, 0, 0, 0);
   z-index: 1;
 }
 
@@ -378,10 +370,6 @@ select.option-title.on {
   flex-wrap: wrap;
   gap: 0.625rem;
   padding-top: 1.25rem;
-}
-
-.value-list-item {
-  /* padding-bottom: 1.25rem; */
 }
 
 .value-button {
@@ -470,10 +458,6 @@ select.option-title.on {
   background: rgba(0, 0, 0, 0.5);
 }
 
-/* dialog#alertDialog {
-  z-index: 9999;
-} */
-
 /* ---------------------------- search-section 끝 ---------------------------- */
 
 /* ----------------------------- movie-list-section 시작 ---------------------------- */
@@ -507,6 +491,7 @@ select.option-title.on {
 
 .movie-list.none {
   display: block;
+  padding-top: 100px;
 }
 
 .movie-list.none li {
@@ -613,7 +598,6 @@ select.option-title.on {
 .pagination {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
   gap: 8px;
   margin: 40px auto 60px;
 }
@@ -642,7 +626,6 @@ select.option-title.on {
 }
 
 .search-result-count {
-  /* text-align: center; */
   font-size: 16px;
   font-weight: 500;
   padding-bottom: 20px;
@@ -714,6 +697,8 @@ select.option-title.on {
 .poster-box .good-btn.on {
   background: url(../images/heart-btn-on.svg) no-repeat center / 46px;
 }
+
+/* ----------------------------- movie-list-section 끝 ---------------------------- */
 
 @media (max-width: 800px) {
   .header .inner {

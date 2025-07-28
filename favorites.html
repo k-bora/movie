@@ -3,13 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MOVIE SEARCH</title>
+    <title>내가 찜한 영화 - 무비 검색</title>
+    <meta property="og:title" content="내가 찜한 영화 - 무비 검색" />
+    <meta property="og:description" content="좋아요를 누른 영화들을 한눈에 확인해보세요!" />
+    <meta property="og:image" content="https://k-bora.github.io/movie/assets/images/og-image.jpg" />
+    <meta property="og:url" content="https://k-bora.github.io/movie/favorite.html" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="./assets/js/global.js" type="module"></script>
-    <!-- <script src="./assets/js/global.js" type="module"></script> -->
   </head>
   <body>
     <header class="header">
@@ -20,16 +23,7 @@
       <section aria-labelledby="search-movie-list" class="movie-list-section inner">
         <h2 id="search-movie-list" class="sr-only">영화 리스트</h2>
         <div class="search-result-count">좋아요 <span id="result-count">0</span>건</div>
-        <ul class="movie-list">
-          <!-- <li class="movie-list__item">
-            <div class="movie-list__poster-box"></div>
-            <strong class="movie-list__title ellipsis">쥬라기 월드 타이틀</strong>
-            <div class="movie-list__info">
-              <span class="search-select-option">movie</span>
-              <span class="search-select-option">2025</span>
-            </div>
-          </li> -->
-        </ul>
+        <ul class="movie-list"></ul>
       </section>
     </main>
 
