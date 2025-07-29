@@ -4,16 +4,44 @@ export const MobileFilter = () => {
   const filterPopupClose = filterPopup.querySelector(".--apply");
   const resetBtn = document.querySelector("#alertfilter .--reset");
 
-  // 모달 열기 + localStorage 값 불러오기
+  // PC 필터 변경 시 → 모바일 필터 동기화
+  const pcTypeBtn = document.querySelector(".select-box-wrap #type-input");
+  const pcYearInput = document.querySelector(".select-box-wrap #year-input");
+  const moTypeSelect = document.querySelector("#alertfilter #type-input");
+  const moYearInput = document.querySelector("#alertfilter #year-input");
+
+  if (pcTypeBtn && moTypeSelect) {
+    const observer = new MutationObserver(() => {
+      const typeText = pcTypeBtn.textContent.trim();
+      moTypeSelect.value = typeText !== "타입" ? typeText.toLowerCase() : "";
+    });
+    observer.observe(pcTypeBtn, { childList: true, subtree: true });
+  }
+
+  if (pcYearInput && moYearInput) {
+    pcYearInput.addEventListener("input", () => {
+      moYearInput.value = pcYearInput.value;
+    });
+  }
+
+  // 모달 열기 + localStorage 또는 pc값 불러오기
   filterBtn.addEventListener("click", () => {
     const moTypeSelect = document.querySelector("#alertfilter #type-input");
     const moYearInput = document.querySelector("#alertfilter #year-input");
 
+    const pcTypeBtn = document.querySelector(".select-box-wrap #type-input");
+    const pcYearInput = document.querySelector(".select-box-wrap #year-input");
+
+    // PC 필터에서 가져오기
+    const typeFromPC = pcTypeBtn?.textContent.trim().toLowerCase();
+    const yearFromPC = pcYearInput?.value.trim();
+
     const typeData = localStorage.getItem("type");
     const yearData = localStorage.getItem("year");
 
-    if (moTypeSelect) moTypeSelect.value = typeData || ""; // typeData있으면 typeData로 없으면 기본값으로 ""값으로
-    if (moYearInput) moYearInput.value = yearData || "";
+    if (moTypeSelect) moTypeSelect.value = typeFromPC && typeFromPC !== "타입" ? typeFromPC : typeData || "";
+
+    if (moYearInput) moYearInput.value = yearFromPC ? yearFromPC : yearData || "";
 
     filterPopup.showModal();
   });
@@ -21,8 +49,9 @@ export const MobileFilter = () => {
   // 적용버튼 클릭시 값 저장 + PC필터 동기화
   filterPopupClose.addEventListener("click", () => {
     const moTypeValue = document.querySelector("#alertfilter #type-input").value.trim();
+    const moYearValue = document.querySelector("#alertfilter #year-input").value.trim(); // ← 이 줄 추가
 
-    // 값이 "" 아닐때
+    // 값이 "" 아닐 때
     if (moYearValue !== "") {
       if (moYearValue < 1887 || moYearValue > new Date().getFullYear()) {
         const alertDialog = document.querySelector("#alertDialog");
@@ -34,10 +63,10 @@ export const MobileFilter = () => {
     }
 
     // 저장
-    localStorage.setItem("type", moTypeValue.toLowerCase()); // 저장할때는 소문자, 노출할때는 대문자
+    localStorage.setItem("type", moTypeValue.toLowerCase());
     localStorage.setItem("year", moYearValue);
 
-    // PC필터 업데이트
+    // PC 필터 업데이트
     const pcTypeBtn = document.querySelector(".select-box-wrap #type-input");
     const pcYearInput = document.querySelector(".select-box-wrap #year-input");
     const pcYearText = document.querySelector(".select-box-wrap #year-input-text");
@@ -68,7 +97,7 @@ export const MobileFilter = () => {
     if (pcYearText) pcYearText.textContent = "연도";
   });
 
-  // ✅ 화면 너비가 720 이상일 경우 팝업 자동 닫기
+  // 화면 너비가 720 이상일 경우 팝업 자동 닫기
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 720 && filterPopup.open) {
       filterPopup.close();
